@@ -1,0 +1,212 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  .modal {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 528px;
+  min-height: 581px;
+  background-color: var(--primary-bg-color);
+  border-radius: 4px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 40px;
+}
+
+.modal-title {
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+
+  color: var(--primary-text-color);
+
+  margin-bottom: 12px;
+}
+
+.modal-input {
+  width: 100%;
+  height: 45px;
+  padding-left: 42px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  &:focus {
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-color: var(--accent-color);
+  }
+}
+
+.modal-text {
+  display: block;
+  width: 100%;
+  height: 120px;
+  margin-top: 4px;
+  padding-left: 16px;
+  padding-top: 12px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  resize: none;
+
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  outline: none;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:focus {
+    border-color: var(--accent-color);
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.form-field {
+  margin-bottom: 10px;
+  textarea::placeholder {
+    color: rgba(117, 117, 117, 0.5);
+  }
+}
+
+.form-field-privacy {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.input-wrap {
+  margin-top: 4px;
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  margin-left: 12px;
+  transform: translateY(-50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  .modal-input:focus + & {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    fill: var(--accent-color);
+  }
+}
+
+.input-text {
+  font-size: 12px;
+  line-height: 1.16;
+  display: block;
+  letter-spacing: 0.01em;
+  color: var(--secondary-text-color);
+}
+
+.modal-check-text {
+  font-size: 14px;
+
+  color: var(--secondary-text-color);
+  display: flex;
+  text-align: center;
+  &:focus {
+    background-color: var(--accent-color);
+  }
+  &::before {
+    content: "";
+    width: 16px;
+    height: 15px;
+    border: 2px solid #212121;
+    border-radius: 3px;
+    margin-right: 7px;
+  }
+}
+
+.modal-check {
+  margin-top: 4px;
+  &:focus + .modal-check-text::before {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.modal-check:checked + .modal-check-text::before {
+  background-color: var(--accent-color);
+  background-image: url(../images/icons/check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: transparent;
+}
+
+.privacy-file {
+  color: var(--accent-color);
+  margin-left: 3px;
+  text-decoration: underline;
+}
+
+.send-btn {
+  min-width: 200px;
+
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--accent-color);
+  border: transparent;
+  border-radius: 4px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  display: block;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: var(--primary-bg-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background-color: var(--hover-color);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    fill: var(--accent-color);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}

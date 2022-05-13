@@ -1,0 +1,40 @@
+.after {
+  text-align: center;
+}
+
+.after-list {
+  display: flex;
+  .after-item {
+    position: relative;
+  }
+}
+
+.after-item {
+  & + & {
+    margin-left: 30px;
+  }
+}
+
+.after__title {
+  padding-left: 345px;
+}
+
+.after__title {
+  margin-bottom: 50px;
+}
+
+.after-item-title {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  background-color: rgba(47, 48, 58, 0.8);
+
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--primary-bg-color);
+}
